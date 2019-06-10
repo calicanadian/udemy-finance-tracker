@@ -1,0 +1,10 @@
+.results-block
+  = bootstrap_flash
+- if @stock
+  .well.results-block
+    %b Symbol:
+    = @stock.ticker
+    %b Name:
+    = @stock.name
+    %b Price:
+    = @stock.last_price

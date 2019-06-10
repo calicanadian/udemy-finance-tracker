@@ -12,10 +12,11 @@
           %i.fa.fa-search
           Look up a stock
 
-.well.results-block
-  %b Symbol:
-  = @stock.ticker
-  %b Name:
-  = @stock.name
-  %b Price:
-  = @stock.last_price
+- if @stock
+  .well.results-block
+    %b Symbol:
+    = @stock.ticker
+    %b Name:
+    = @stock.name
+    %b Price:
+    = @stock.last_price

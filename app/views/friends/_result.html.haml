@@ -1,0 +1,26 @@
+- if params[:action] == 'search'
+  .results-block
+    = bootstrap_flash
+- if @users
+  - if @users.size > 0
+    #friend-lookup-results.well.results-block.col-md-10
+      %table.search-results-table.col-md-12
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td
+                %b
+                  Name:
+                = user.full_name
+              %td
+                %b
+                  Email:
+                = user.email
+              %td
+                %b
+                  Profile:
+                = link_to "View Profile", "#", class: "btn btn-xs btn-success"
+                - if current_user.not_friends_with?(user.id)
+                  = link_to "Add as my friend", add_friend_path(user: current_user, friend: user), method: :post, class: "btn btn-xs btn-info"
+                - else
+                  %span.label.label-primary You are already friends

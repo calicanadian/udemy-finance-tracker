@@ -1,5 +1,6 @@
-.results-block
-  = bootstrap_flash
+- if params[:action] == 'search'
+  .results-block
+    = bootstrap_flash
 - if @stock
   .well.results-block
     %b Symbol:
